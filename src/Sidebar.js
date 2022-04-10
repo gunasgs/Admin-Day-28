@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import UserContext from "./UserContext";
 function Sidebar() {
+  const userContext1=useContext(UserContext)
   return (
     <ul
       class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
@@ -15,14 +16,14 @@ function Sidebar() {
           <i class="fas fa-laugh-wink"></i>
         </div>
         <div class="sidebar-brand-text mx-3">
-          SB Admin <sup>2</sup>
+          SB Admin <sup>2</sup> {userContext1.name}
         </div>
       </a>
 
       <hr class="sidebar-divider my-0" />
 
       <li class="nav-item active">
-        <Link class="nav-link" to={'/dashboard'}>
+        <Link class="nav-link" to={"/dashboard"}>
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </Link>
@@ -33,35 +34,32 @@ function Sidebar() {
       <li class="nav-item">
         <Link
           class="nav-link collapsed"
-          to={'/users'}
+          to={"/users"}
           data-toggle="collapse"
           data-target="#collapseTwo"
           aria-expanded="true"
           aria-controls="collapseTwo"
         >
           <i class="fas fa-fw fa-table"></i>
-          <span>Users</span>
+          <span>Student</span>
         </Link>
-     
       </li>
 
       <li class="nav-item">
         <Link
           class="nav-link collapsed"
-          to={'/product'}
+          to={"/product"}
           data-toggle="collapse"
           data-target="#collapseUtilities"
           aria-expanded="true"
           aria-controls="collapseUtilities"
         >
           <i class="fas fa-fw fa-folder"></i>
-          <span>Product</span>
+          <span>Teacher</span>
         </Link>
-      
       </li>
 
       <hr class="sidebar-divider" />
-
 
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
